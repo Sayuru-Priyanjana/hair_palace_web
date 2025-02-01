@@ -1,0 +1,25 @@
+.current-appointments {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 600px) {
+    table th, table td {
+      font-size: 12px;
+    }
+  }

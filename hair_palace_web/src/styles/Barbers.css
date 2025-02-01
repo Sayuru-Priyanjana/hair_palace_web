@@ -1,0 +1,46 @@
+.barber-status {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .barber-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .barber-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #333;
+  }
+  
+  .barber-card h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .barber-card p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 600px) {
+    .barber-card img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .barber-card h3 {
+      font-size: 16px;
+    }
+  
+    .barber-card p {
+      font-size: 12px;
+    }
+  }
