@@ -1,45 +1,117 @@
+/* Home.css */
+
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url('https://images.pexels.com/photos/1570806/pexels-photo-1570806.jpeg?auto=compress&cs=tinysrgb&w=400');
+  background-image: url('../assets/hero_desktop.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 350px;
+  height: 500px;
   display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
+  overflow: hidden;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: baseline;
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 45px;
   font-weight: bold;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
-}
-
-.hero p {
-  font-size: 18px;
   max-width: 600px;
-  line-height: 1.5;
-  opacity: 0.9;
+  text-align: start;
+  margin-left: 80px;
+  line-height: 55px;
+  margin-top: -30px;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+.hero h1.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.typewriter {
+  font-size: 44px;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s; /* Delay for staggered effect */
+}
+
+.typewriter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.book-button {
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  border: solid 1px rgb(84, 86, 196);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  margin-top: 40px;
+  background-color: transparent;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s; /* Delay for staggered effect */
+}
+
+.book-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.book-button:hover {
+  background-color: #30647c;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
   .hero {
-      height: 250px;
-      padding: 15px;
+    height: 250px;
+    padding: 15px;
+    margin-top: 0;
   }
 
   .hero h1 {
-      font-size: 28px;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 0;
+    line-height: 35px;
   }
 
-  .hero p {
-      font-size: 16px;
+  .typewriter {
+    font-size: 24px;
   }
+
+  .book-button {
+    font-size: 13px;
+    max-width: 160px;
+    margin-top: 20px;
+    border: solid 2px rgb(25, 27, 184);
+  }
+
+  .landing {
+    align-items: center;
+  }
+}
+
+.green-text {
+  color: rgba(75, 224, 230, 0.966);
 }

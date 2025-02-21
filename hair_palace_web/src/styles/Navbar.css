@@ -1,31 +1,42 @@
 header {
     background-color: #000000;
     color: #fff;
-    padding: 10px 20px;
+    padding: 20px 20px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    
   }
   
   header .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
+    font-family: "Sansita Swashed", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    
   }
+
+
   
   nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    margin-right: 100px;
   }
   
   nav ul li {
     margin-left: 20px;
+
   }
   
   nav ul li a {
-    color: #fff;
+    color: #fffffffb;
     text-decoration: none;
+    font-family: "Sansita Swashed", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 20px;
   }
   
   @media (max-width: 600px) {
@@ -38,6 +49,7 @@ header {
       font-size: 20px;
       font-weight: bold;
       color: rgb(255, 255, 255);
+      margin-bottom: 10px;
     }
 
     

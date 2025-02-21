@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Book.css';
 
 const Book = () => {
@@ -7,13 +7,43 @@ const Book = () => {
   const [barber, setBarber] = useState('');
   const [time, setTime] = useState('');
 
+  // Ref for the booking-form container
+  const bookingFormRef = useRef(null);
+
+  // Intersection Observer for scroll-triggered animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // Add class when in view
+          } else {
+            entry.target.classList.remove('visible'); // Remove class when out of view
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+      }
+    );
+
+    if (bookingFormRef.current) {
+      observer.observe(bookingFormRef.current);
+    }
+
+    // Cleanup observer on unmount
+    return () => {
+      if (bookingFormRef.current) observer.unobserve(bookingFormRef.current);
+    };
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Appointment booked successfully!");
   };
 
   return (
-    <section id="book" className="booking-form">
+    <section id="book" className="booking-form" ref={bookingFormRef}>
       <h2>Book an Appointment</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required />

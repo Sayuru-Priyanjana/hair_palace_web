@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Slider.css';
+import pic1 from '../assets/pic1.jpg'
+import pic2 from '../assets/pic2.jpg'
+import pic3 from '../assets/pic3.jpg'
+
 
 const Slider = () => {
   const images = [
-    'https://images.pexels.com/photos/897271/pexels-photo-897271.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/668196/pexels-photo-668196.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/3037244/pexels-photo-3037244.jpeg?auto=compress&cs=tinysrgb&w=400',
+    pic2,pic3,pic1
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

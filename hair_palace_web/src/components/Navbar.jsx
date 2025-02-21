@@ -5,6 +5,7 @@ const Navbar = () => {
   return (
     <header>
       <div className="logo">Hair Palace</div>
+      <div className="Nav">
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
@@ -14,6 +15,7 @@ const Navbar = () => {
           <li><a href="#about">About Us</a></li>
         </ul>
       </nav>
+      </div>
     </header>
   );
 };

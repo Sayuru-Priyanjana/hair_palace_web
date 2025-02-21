@@ -1,46 +1,66 @@
+/* Barbers.css */
+
 .barber-status {
-    padding: 20px;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .barber-card {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.barber-status.visible {
+  opacity: 1; /* Fully visible when in view */
+  transform: translateY(0); /* Move to original position */
+}
+
+.barber-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.barber-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #333;
+}
+
+.barber-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.barber-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.status {
+  font-weight: bold;
+  color: #000000; /* Green for "Working" status */
+}
+
+.status.not-working {
+  color: #000000; /* Red for "Not Working" status */
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
   .barber-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-    border: 2px solid #333;
+    width: 60px;
+    height: 60px;
   }
-  
+
   .barber-card h3 {
-    margin: 0;
-    font-size: 18px;
+    font-size: 16px;
   }
-  
+
   .barber-card p {
-    margin: 5px 0;
-    font-size: 14px;
+    font-size: 12px;
   }
-  
-  @media (max-width: 600px) {
-    .barber-card img {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .barber-card h3 {
-      font-size: 16px;
-    }
-  
-    .barber-card p {
-      font-size: 12px;
-    }
-  }
+}
