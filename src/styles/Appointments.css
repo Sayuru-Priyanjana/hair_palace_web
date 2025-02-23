@@ -1,7 +1,7 @@
 /* Appointments.css */
 
 .current-appointments {
-  padding: 20px;
+  padding: 10px;
   background-color: #fff;
   margin: 20px;
   border-radius: 8px;
@@ -33,4 +33,21 @@ table th, table td {
   table th, table td {
     font-size: 12px;
   }
+}
+
+
+.status-pending {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.status-accepted {
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.status-ongoing {
+  color: rgb(13, 150, 13);
+  font-family: Arial, Helvetica, sans-serif;
 }
