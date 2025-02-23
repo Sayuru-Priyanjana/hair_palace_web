@@ -1,14 +1,30 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Appointments.css';
+import { database, ref, onValue } from '../firebase'; // Import Firebase functions
 
 const Appointments = () => {
-  const appointments = [
-    { barber: "Harsha", name: "Jhone doe", time: "10:00 AM", status: "Ongoing" },
-    { barber: "Barber 2", name: "Jane Smith", time: "11:00 AM", status: "Upcoming" },
-  ];
+  const [appointments, setAppointments] = useState([]); // State to store appointments
 
   // Ref for the current-appointments container
   const appointmentsRef = useRef(null);
+
+  // Fetch appointments from Firebase Realtime Database
+  useEffect(() => {
+    const appointmentsRef = ref(database, 'appointments'); // Reference to the 'appointments' node
+    onValue(appointmentsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        // Convert the data object into an array
+        const appointmentsArray = Object.keys(data).map((key) => ({
+          id: key, // Include the unique key from Firebase
+          ...data[key],
+        }));
+        setAppointments(appointmentsArray); // Update state with fetched data
+      } else {
+        setAppointments([]); // If no data, set appointments to an empty array
+      }
+    });
+  }, []);
 
   // Intersection Observer for scroll-triggered animations
   useEffect(() => {
@@ -43,19 +59,19 @@ const Appointments = () => {
       <table>
         <thead>
           <tr>
-            <th>Barber</th>
             <th>Customer</th>
+            <th>Service</th>
             <th>Time</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {appointments.map((app, index) => (
-            <tr key={index}>
-              <td>{app.barber}</td>
+          {appointments.map((app) => (
+            <tr key={app.id}>
               <td>{app.name}</td>
+              <td>{app.service}</td>
               <td>{app.time}</td>
-              <td>{app.status}</td>
+              <td>{app.state}</td>
             </tr>
           ))}
         </tbody>

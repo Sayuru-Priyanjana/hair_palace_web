@@ -29,6 +29,10 @@ header {
     margin-left: 20px;
 
   }
+
+  nav ul li a:hover{
+    color: aqua;
+  }
   
   nav ul li a {
     color: #fffffffb;

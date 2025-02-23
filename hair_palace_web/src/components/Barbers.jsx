@@ -43,14 +43,7 @@ const Barbers = () => {
           <p>Next Available Slot: 3:00 PM</p>
         </div>
       </div>
-      <div className="barber-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTORpyntEdQdqbCk1U6x_EU-RWWp_fHoTW8A&s" alt="Barber 2" />
-        <div>
-          <h3>Barber 2</h3>
-          <p>Status: <span className="status">Not Working</span></p>
-          <p>Next Available Slot: Not Available</p>
-        </div>
-      </div>
+     
     </section>
   );
 };
