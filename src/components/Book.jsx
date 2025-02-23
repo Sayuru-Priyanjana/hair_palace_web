@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Book.css';
-import { database, ref, push } from '../firebase'; // Import Firebase functions
+import { database, ref, push, get, child } from '../firebase'; // Import Firebase functions
 
 const Book = () => {
   const [name, setName] = useState('');
@@ -8,9 +8,48 @@ const Book = () => {
   const [service, setService] = useState('');
   const [time, setTime] = useState('');
   const [state, setState] = useState('Pending');
+  const [price, setPrice] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [services, setServices] = useState([]); // State to store services from Firebase
 
   const bookingFormRef = useRef(null);
 
+  // Fetch services from Firebase on component mount
+  useEffect(() => {
+    const fetchServices = async () => {
+      const categoriesRef = ref(database, 'categories');
+      try {
+        const snapshot = await get(categoriesRef);
+        if (snapshot.exists()) {
+          const servicesData = snapshot.val();
+          const servicesList = Object.keys(servicesData).map((key) => ({
+            id: key,
+            ...servicesData[key],
+          }));
+          setServices(servicesList); // Set services in state
+        } else {
+          console.log('No services available');
+        }
+      } catch (error) {
+        console.error('Error fetching services: ', error);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  // Update price and duration when a service is selected
+  useEffect(() => {
+    if (service) {
+      const selectedService = services.find((s) => s.name === service);
+      if (selectedService) {
+        setPrice(selectedService.price);
+        setDuration(selectedService.time);
+      }
+    }
+  }, [service, services]);
+
+  // Intersection Observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -46,6 +85,8 @@ const Book = () => {
       service,
       time,
       state,
+      price,
+      duration,
       timestamp: new Date().toISOString(), // Add a timestamp for reference
     };
 
@@ -53,13 +94,15 @@ const Book = () => {
     const appointmentsRef = ref(database, 'appointments');
     push(appointmentsRef, appointmentData)
       .then(() => {
-        alert('Admin will accept your appointment soon. When accept it your appointment shown in appointment table');
+        alert('Admin will accept your appointment soon.');
         // Clear the form
         setName('');
         setPhone('');
         setService('');
         setTime('');
         setState('Pending');
+        setPrice(0);
+        setDuration(0);
       })
       .catch((error) => {
         console.error('Error submitting appointment: ', error);
@@ -75,8 +118,11 @@ const Book = () => {
         <input type="tel" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         <select value={service} onChange={(e) => setService(e.target.value)} required>
           <option value="">Select Service</option>
-          <option value="HairCut">HairCut</option>
-          <option value="Facial">Facial</option>
+          {services.map((s) => (
+            <option key={s.id} value={s.name}>
+              {s.name}
+            </option>
+          ))}
         </select>
         <select value={time} onChange={(e) => setTime(e.target.value)} required>
           <option value="">Select Time</option>
