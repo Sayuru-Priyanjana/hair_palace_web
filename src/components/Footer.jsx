@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Location</h3>
           <p>123 Beauty Street,</p>
-          <p>City, Country</p>
+          <p>Padaviya, Sri lanka</p>
         </div>
       </div>
       <div className="footer-bottom">
