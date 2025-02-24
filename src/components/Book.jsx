@@ -38,8 +38,8 @@ const Book = () => {
       if (operationsSnapshot.exists()) {
         const operationsData = operationsSnapshot.val();
         setWorkingHours({
-          start: operationsData.start_time || '08:30',
-          end: operationsData.end_time || '18:00',
+          start: operationsData.start_time,
+          end: operationsData.end_time,
         });
       }
 
