@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/Home.css';
 import Slider from './Slider';
+import AboutUs from './AboutUs';
 
 const Home = () => {
   // Create refs for the elements to animate
@@ -56,7 +57,9 @@ const Home = () => {
           </a>
         </div>
       </div>
-      <Slider />
+      <section id="about">
+        <AboutUs />
+      </section>
     </section>
   );
 };

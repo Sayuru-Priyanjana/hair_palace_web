@@ -6,9 +6,9 @@
   margin: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  opacity: 0; /* Initially hidden */
-  transform: translateY(20px); /* Start slightly below */
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  /* opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; */
 }
 
 .barber-status.visible {

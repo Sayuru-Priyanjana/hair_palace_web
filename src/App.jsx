@@ -30,9 +30,9 @@ function App() {
         <Book />
       </section>
       
-      <section id="about">
+      {/* <section id="about">
         <AboutUs />
-      </section>
+      </section> */}
 
       <Footer />
     </>

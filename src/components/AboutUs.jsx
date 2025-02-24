@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/AboutUs.css';
+import logo1 from '../assets/logo1.jpg';
 
 const AboutUs = () => {
   // Ref for the about-us container
@@ -34,10 +35,28 @@ const AboutUs = () => {
 
   return (
     <section id="about" className="about-us" ref={aboutUsRef}>
-      <h2>About Us</h2>
-      <p>
-        Welcome to Hair Palace, where we provide the best grooming experience for gentlemen. Our skilled barbers are dedicated to giving you the perfect look.
-      </p>
+      <div className="about-content">
+        <img
+          src={logo1} // Replace with your image URL
+          alt="About Us"
+          className="about-image"
+        />
+        <div className="about-text">
+          <h2>About Us</h2>
+          <p>
+            Welcome to <strong>Hair Palace</strong>, where we provide the best grooming experience for gentlemen. Our skilled barbers are dedicated to giving you the perfect look.
+          </p>
+          {/* Additional content for desktop view */}
+          <div className="desktop-content">
+            <p>
+              At <strong>Hair Palace</strong>, we believe that every gentleman deserves to look and feel his best. That's why we use only the finest products and techniques to ensure you leave our salon feeling confident and refreshed.
+            </p>
+            <p>
+              Whether you're here for a classic haircut, a beard trim, or a relaxing shave, our team is here to make your experience unforgettable. Visit us today and discover the difference!
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

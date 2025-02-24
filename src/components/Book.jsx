@@ -180,12 +180,13 @@ const Book = () => {
           <option value="">Select Service</option>
           {services.map((s) => (
             <option key={s.id} value={s.name}>
-              {s.name} (${s.price}, {s.time} mins)
+              {s.name} (Rs:{s.price}, {s.time} mins)
             </option>
           ))}
         </select>
         <input
           type="time"
+          placeholder='Select Time'
           value={time}
           onChange={(e) => setTime(e.target.value)}
           min={workingHours.start}
