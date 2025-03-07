@@ -61,7 +61,7 @@ const Barbers = () => {
           <p>
             Status:{' '}
             <span className="status" style={{ color: isWorking ? 'green' : 'red' }}>
-              {isWorking ? 'Working' : 'Not Working'}
+              {isWorking ? 'Working' : 'No more bookings for today'}
             </span>
           </p>
           {isWorking && (

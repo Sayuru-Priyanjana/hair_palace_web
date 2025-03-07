@@ -1,45 +1,86 @@
 /* Appointments.css */
-
 .current-appointments {
-  padding: 10px;
+  padding: 15px;
   background-color: #fff;
   margin: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  opacity: 0; /* Initially hidden */
-  transform: translateY(20px); /* Start slightly below */
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .current-appointments.visible {
-  opacity: 1; /* Fully visible when in view */
-  transform: translateY(0); /* Move to original position */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.current-appointments h2 {
+  font-size: 1.4em; /* Reduced from default h2 size */
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+.daily-table {
+  margin-bottom: 2rem; /* Space between table units */
+}
+
+.daily-table h3 {
+  font-size: 1.1em; /* Reduced table title size */
+  margin-bottom: 0.8rem;
+  color: #444;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 1.5rem; /* Space below each table */
 }
 
-table th, table td {
-  padding: 10px;
-  border: 1px solid #ccc;
+table th, 
+table td {
+  padding: 12px;
+  border: 1px solid #ddd;
   text-align: left;
   font-size: 14px;
 }
 
+table th {
+  background-color: #f8f8f8;
+}
+
 /* Mobile styles */
 @media (max-width: 600px) {
-  table th, table td {
+  .current-appointments {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .current-appointments h2 {
+    font-size: 1.2em;
+  }
+
+  .daily-table h3 {
+    font-size: 1em;
+  }
+
+  table th, 
+  table td {
+    padding: 8px;
     font-size: 12px;
+  }
+
+  .daily-table {
+    margin-bottom: 1.5rem; /* Adjusted mobile spacing */
   }
 }
 
-
+/* Status styles remain the same */
 .status-pending {
   color: red;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 .status-accepted {
