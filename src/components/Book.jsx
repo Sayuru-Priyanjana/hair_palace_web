@@ -89,7 +89,13 @@ const Book = () => {
     for (let i = 0; i < 3; i++) {
       const date = new Date(today);
       date.setDate(date.getDate() + i);
-      const dateString = date.toISOString().split('T')[0];
+      
+      // Get local date components
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const dateString = `${year}-${month}-${day}`;
+      
       const isHoliday = holidays.includes(dateString);
       
       options.push({
