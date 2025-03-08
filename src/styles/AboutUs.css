@@ -89,6 +89,7 @@
   .about-text p {
     font-size: 14px;
     line-height: 1.6; /* Slightly reduced line height for mobile */
+    text-align: justify;
   }
 
   .about-text h2 {
